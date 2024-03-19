@@ -54,4 +54,30 @@ public class Media {
         }
     }
 
+    //@Override
+    // compareto
+
+    /**
+     * Getter for String name
+     * @return String name representing the name of this media item
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Getter for int rating
+     * @return int rating representing the rating of this media item
+     */
+    public int getRating() {
+        return rating;
+    }
+
+    /**
+     * Getter for double rentalPrice
+     * @return double rentalPrice representing the price in dollars to rent this media item
+     */
+    public double getRentalPrice() {
+        return rentalPrice;
+    }
 }
