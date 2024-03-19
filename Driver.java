@@ -10,5 +10,11 @@ public class Driver {
         System.out.println(dune.toString());
         System.out.println(dune.equals(dune1));
 
+        VideoGame cs2 = new VideoGame(Genre.ACTION, "CS2", 8, 5.0, 2, false);
+        VideoGame cssource = new VideoGame(Genre.ACTION, "CS2", 8);
+
+        System.out.println(cs2.toString());
+        System.out.println(cs2.equals(cssource));
+
     }
 }

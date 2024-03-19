@@ -1,3 +1,9 @@
+/**
+ * @author mpalucci3
+ * @version 05.02
+ * This class extends from the Media class and describes a movie, a specific kind of media
+ * item that customers can check out.
+ */
 public class Movie extends Media{
     private int runtime;
 
@@ -41,4 +47,5 @@ public class Movie extends Media{
             return false;
         }
     }
+
 }

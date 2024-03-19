@@ -37,7 +37,7 @@ public class Media {
         return "Genre: " + genre
                 + ", Name: " + name
                 + ", Rating: " + rating
-                + ", Rental Price: " + rentalPrice;
+                + ", Rental Price: $" + rentalPrice;
     }
     @Override
     public boolean equals(Object o){
