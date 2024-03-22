@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * @version 05.04
  */
 public class Blockbuster {
-    ArrayList<Media> inventory;
+    private ArrayList<Media> inventory;
 
     /**
      * No arg constructor that initializes inventory to an ArrayList of type Media.
      */
-    public Blockbuster(){
+    public Blockbuster() {
         this.inventory = new ArrayList<Media>();
     }
 
@@ -19,8 +19,8 @@ public class Blockbuster {
      * This method takes in a non-null media item and adds it to the end of inventory.
      * @param obj representing Media object to be appended
      */
-    public void addMedia(Media obj){
-        if (obj == null){
+    public void addMedia(Media obj) {
+        if (obj == null) {
             return;
         }
         inventory.add(obj);
@@ -31,13 +31,13 @@ public class Blockbuster {
      * @param obj
      * @return
      */
-    public Media removeMedia(Media obj){
+    public Media removeMedia(Media obj) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if (obj == null){
+        if (obj == null) {
             return null;
         }
-        for (int i = 0; i < inventory.size(); i ++){
-            if (inventory.get(i).equals(obj)){
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).equals(obj)) {
                 Media mediaToReturn = inventory.get(i);
                 inventory.remove(i);
                 return mediaToReturn;
@@ -50,21 +50,21 @@ public class Blockbuster {
      * Sort method using the bubble sort algorithm.
      * Source: https://www.geeksforgeeks.org/bubble-sort/
      */
-    public void sortMedia(){
+    public void sortMedia() {
         boolean swapped;
         Media temp;
 
-        for (int i = 0; i < inventory.size() - 1; i ++){
+        for (int i = 0; i < inventory.size() - 1; i++) {
             swapped = false;
-            for (int j = 0; j < inventory.size() - 1 - i; j ++) {
-                if (inventory.get(j).compareTo(inventory.get(j + 1)) > 0 ){
+            for (int j = 0; j < inventory.size() - 1 - i; j++) {
+                if (inventory.get(j).compareTo(inventory.get(j + 1)) > 0) {
                     temp = inventory.get(j);
                     inventory.set(j, inventory.get(j + 1));
                     inventory.set(j + 1, temp);
                     swapped = true;
                 }
             }
-            if (!swapped){
+            if (!swapped) {
                 break;
             }
         }
@@ -75,23 +75,23 @@ public class Blockbuster {
      * @param obj Media object representing item to be searched
      * @return Media object representing the item in the inventory list matching the searched item
      */
-    public Media findMedia(Media obj){
+    public Media findMedia(Media obj) {
         int min = 0;
         int max = inventory.size();
         int mid = 0;
 
         boolean found = false;
-        while (!found && min <= max){
+        while (!found && min <= max) {
             mid = (min + max) / 2;
-            if (inventory.get(mid).equals(obj)){
+            if (inventory.get(mid).equals(obj)) {
                 found = true;
-            } else if (obj.compareTo(inventory.get(mid)) < 0){
+            } else if (obj.compareTo(inventory.get(mid)) < 0) {
                 max = mid - 1;
             } else {
                 min = mid + 1;
             }
         }
-        if (found){
+        if (found) {
             return inventory.get(mid);
 
         } else {
@@ -99,23 +99,22 @@ public class Blockbuster {
         }
     }
 
-    public Movie getMostPopularMovie(){
+    public Movie getMostPopularMovie() {
         int currentRating = 0;
         Media mostPopularMovie = inventory.get(0);
-        for (Media i : inventory){
-            if (i instanceof Movie){
-                if (i.getRating() > currentRating){
+        for (Media i : inventory) {
+            if (i instanceof Movie) {
+                if (i.getRating() > currentRating) {
                     currentRating = i.getRating();
                     mostPopularMovie = i;
-                } else if (i.getRating() == currentRating){
-                    if (i.compareTo(mostPopularMovie) < 0){
+                } else if (i.getRating() == currentRating) {
+                    if (i.compareTo(mostPopularMovie) < 0) {
                         mostPopularMovie = i;
                     }
                 }
 
             }
         }
-
         return (Movie) mostPopularMovie;
     }
 

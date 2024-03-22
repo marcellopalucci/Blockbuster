@@ -38,5 +38,7 @@ public class Driver {
 
         System.out.println(blockbusterStore.getMostPopularMovie());
 
+        Olivia.addToCart(borat2, blockbusterStore);
+        Olivia.changeMind(borat2, blockbusterStore);
     }
 }

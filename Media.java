@@ -3,7 +3,7 @@
  * @version 05.01
  * This class defines the basic behaviors of media items a customer can check out.
  */
-public class Media implements Comparable <Media>{
+public class Media implements Comparable<Media> {
     private Genre genre;
     private String name;
     private int rating;
@@ -33,45 +33,42 @@ public class Media implements Comparable <Media>{
         this(genre, name, rating, 7.0);
     }
     @Override
-    public String toString(){
+    public String toString() {
         return "Genre: " + genre
                 + ", Name: " + name
                 + ", Rating: " + rating
                 + ", Rental Price: $" + rentalPrice;
     }
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null) {
             return false;
-        } else if (!(o instanceof Media)){
+        } else if (!(o instanceof Media)) {
             return false;
         }
         Media obj = (Media) o;
-        if (this.name.equals(obj.name) && this.genre.equals(obj.genre) && this.rating == obj.rating && this.rentalPrice == obj.rentalPrice){
-            return true;
-        } else {
-            return false;
-        }
+        return (this.name.equals(obj.name) && this.genre.equals(obj.genre)
+                && this.rating == obj.rating
+                && this.rentalPrice == obj.rentalPrice);
     }
 
     @Override
-    public int compareTo (Media o) {
+    public int compareTo(Media o) {
         //this is just to get the idea, but need to rework
 
-        if (this.genre.ordinal() > o.genre.ordinal()){
+        if (this.genre.ordinal() > o.genre.ordinal()) {
             return 1;
-        }
-        else if (this.genre.ordinal () < o.genre.ordinal()){
+        } else if (this.genre.ordinal() < o.genre.ordinal()) {
             return -1;
         } else {
-            if (this.name.compareTo(o.name) > 0){
+            if (this.name.compareTo(o.name) > 0) {
                 return 2;
             } else if (this.name.compareTo(o.name) < 0) {
                 return -2;
             } else {
-                if (this.rating > o.rating){
+                if (this.rating > o.rating) {
                     return 3;
-                } else if (this.rating < o.rating){
+                } else if (this.rating < o.rating) {
                     return -3;
                 }
             }
