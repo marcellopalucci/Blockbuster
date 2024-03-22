@@ -3,7 +3,7 @@
  * @version 05.01
  * This class defines the basic behaviors of media items a customer can check out.
  */
-public class Media {
+public class Media implements Comparable <Media>{
     private Genre genre;
     private String name;
     private int rating;
@@ -54,8 +54,30 @@ public class Media {
         }
     }
 
-    //@Override
-    // compareto
+    @Override
+    public int compareTo (Media o) {
+        //this is just to get the idea, but need to rework
+
+        if (this.genre.ordinal() > o.genre.ordinal()){
+            return 1;
+        }
+        else if (this.genre.ordinal () < o.genre.ordinal()){
+            return -1;
+        } else {
+            if (this.name.compareTo(o.name) > 0){
+                return 2;
+            } else if (this.name.compareTo(o.name) < 0) {
+                return -2;
+            } else {
+                if (this.rating > o.rating){
+                    return 3;
+                } else if (this.rating < o.rating){
+                    return -3;
+                }
+            }
+        }
+        return 0;
+    }
 
     /**
      * Getter for String name
