@@ -46,7 +46,6 @@ public class Olivia {
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i).equals(item)) {
                 blockbusterStore.addMedia(item);
-                //Sort here??
                 budget += cart.get(i).getRentalPrice();
                 cart.remove(i);
                 return;

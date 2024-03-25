@@ -35,6 +35,7 @@ public class Blockbuster {
         if (item == null) {
             return null;
         }
+        //Media
         for (int i = 0; i < inventory.size(); i++) {
             if (inventory.get(i).equals(item)) {
                 Media mediaToReturn = inventory.get(i);
@@ -42,6 +43,7 @@ public class Blockbuster {
                 return mediaToReturn;
             }
         }
+        //inventory.remove(item);
         return null;
     }
 
