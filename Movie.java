@@ -1,8 +1,8 @@
 /**
- * @author mpalucci3
- * @version 05.02
  * This class extends from the Media class and describes a movie, a specific kind of media
  * item that customers can check out.
+ * @author mpalucci3
+ * @version 05.03
  */
 public class Movie extends Media {
     private int runtime;
@@ -40,8 +40,8 @@ public class Movie extends Media {
         } else if (!(o instanceof Movie)) {
             return false;
         }
-        Movie obj = (Movie) o;
-        return (super.equals(obj) && this.runtime == obj.runtime);
+        Movie movieComp = (Movie) o;
+        return (super.equals(movieComp) && this.runtime == movieComp.runtime);
     }
 
 }

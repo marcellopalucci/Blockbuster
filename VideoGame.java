@@ -1,8 +1,8 @@
 /**
- * @author mpalucci3
- * @version 05.03
  * This class extends from media class and describes a video game, a specific kind of media
  * item that customers can check out.
+ * @author mpalucci3
+ * @version 05.04
  */
 public class VideoGame extends Media {
     private int maxPlayers;
@@ -25,7 +25,7 @@ public class VideoGame extends Media {
 
     /**
      * Constructor that takes in genre, name, and rating. Sets rentalPrice = 5.0,
-     * maxPlayers = 2, and needsConsole = False
+     * maxPlayers = 2, and needsConsole = False.
      * @param genre Genre representing the genre of this media item
      * @param name String representing the name of this media item
      * @param rating int representing the rating of this media item
@@ -37,7 +37,8 @@ public class VideoGame extends Media {
     @Override
     public String toString() {
         String doitNeed = (needsConsole) ? "does" : "does not";
-        return super.toString() + ", Players: " + maxPlayers
+        return super.toString()
+                + ", Players: " + maxPlayers
                 + ", " + doitNeed + " need console";
     }
     @Override
@@ -50,6 +51,7 @@ public class VideoGame extends Media {
         VideoGame obj = (VideoGame) o;
         return (super.equals(obj) && this.maxPlayers == obj.maxPlayers && this.needsConsole == obj.needsConsole);
     }
+
     /**
      * Getter for boolean needsConsole.
      * @return boolean needsConsole representing whether this video game needs a gaming console to play

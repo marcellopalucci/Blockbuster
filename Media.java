@@ -1,9 +1,9 @@
 /**
- * @author mpalucci3
- * @version 05.01
  * This class defines the basic behaviors of media items a customer can check out.
+ * @author mpalucci3
+ * @version 05.02
  */
-public class Media implements Comparable<Media> {
+public abstract class Media implements Comparable<Media> {
     private Genre genre;
     private String name;
     private int rating;
@@ -34,10 +34,7 @@ public class Media implements Comparable<Media> {
     }
     @Override
     public String toString() {
-        return "Genre: " + genre
-                + ", Name: " + name
-                + ", Rating: " + rating
-                + ", Rental Price: $" + rentalPrice;
+        return String.format("Genre: %s, Name: %s, Rating: %d, Rental Price: $%.2f", genre, name, rating, rentalPrice);
     }
     @Override
     public boolean equals(Object o) {
@@ -46,15 +43,19 @@ public class Media implements Comparable<Media> {
         } else if (!(o instanceof Media)) {
             return false;
         }
-        Media obj = (Media) o;
-        return (this.name.equals(obj.name) && this.genre.equals(obj.genre)
-                && this.rating == obj.rating
-                && this.rentalPrice == obj.rentalPrice);
+        Media mediaComp = (Media) o;
+        return (this.name.equals(mediaComp.name)
+                && this.genre.equals(mediaComp.genre)
+                && this.rating == mediaComp.rating
+                && this.rentalPrice == mediaComp.rentalPrice);
     }
 
     @Override
     public int compareTo(Media o) {
-        //this is just to get the idea, but need to rework
+        // need to rework
+        if (o == null){
+            return -9999;
+        }
 
         if (this.genre.ordinal() > o.genre.ordinal()) {
             return 1;
@@ -77,7 +78,7 @@ public class Media implements Comparable<Media> {
     }
 
     /**
-     * Getter for String name
+     * Getter for String name.
      * @return String name representing the name of this media item
      */
     public String getName() {
@@ -85,7 +86,7 @@ public class Media implements Comparable<Media> {
     }
 
     /**
-     * Getter for int rating
+     * Getter for int rating.
      * @return int rating representing the rating of this media item
      */
     public int getRating() {
@@ -93,7 +94,7 @@ public class Media implements Comparable<Media> {
     }
 
     /**
-     * Getter for double rentalPrice
+     * Getter for double rentalPrice.
      * @return double rentalPrice representing the price in dollars to rent this media item
      */
     public double getRentalPrice() {

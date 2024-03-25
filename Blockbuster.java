@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-
 /**
  * This class represents a Blockbuster store that has movies and video games customers can check out.
  * @author mpalucci3
- * @version 05.04
+ * @version 05.05
  */
+import java.util.ArrayList;
 public class Blockbuster {
     private ArrayList<Media> inventory;
 
@@ -17,27 +16,27 @@ public class Blockbuster {
 
     /**
      * This method takes in a non-null media item and adds it to the end of inventory.
-     * @param obj representing Media object to be appended
+     * @param item representing Media object to be appended
      */
-    public void addMedia(Media obj) {
-        if (obj == null) {
+    public void addMedia(Media item) {
+        if (item == null) {
             return;
         }
-        inventory.add(obj);
+        inventory.add(item);
     }
 
     /**
      * This method takes in a non-null media item and removes the first occurrence of it.
-     * @param obj
-     * @return
+     * @param item Media representing the item to be removed from Blockbuster's inventory
+     * @return Media representing the item to be removed from Blockbuster's inventory
      */
-    public Media removeMedia(Media obj) {
+    public Media removeMedia(Media item) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if (obj == null) {
+        if (item == null) {
             return null;
         }
         for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).equals(obj)) {
+            if (inventory.get(i).equals(item)) {
                 Media mediaToReturn = inventory.get(i);
                 inventory.remove(i);
                 return mediaToReturn;
@@ -71,7 +70,7 @@ public class Blockbuster {
     }
 
     /**
-     * Search method, using binary serach, that finds and returns the item in the store.
+     * Search method, using binary search, that finds and returns the item in the store.
      * @param obj Media object representing item to be searched
      * @return Media object representing the item in the inventory list matching the searched item
      */
@@ -99,25 +98,30 @@ public class Blockbuster {
         }
     }
 
+    /**
+     * Method which returns the most popular movie, based on rating, then lexicographical order, using linear search.
+     * @return Movie representing the most popular Movie
+     */
     public Movie getMostPopularMovie() {
+        //CHECK THIS, use of generics?
         int currentRating = 0;
         Media mostPopularMovie = inventory.get(0);
-        for (Media i : inventory) {
-            if (i instanceof Movie) {
-                if (i.getRating() > currentRating) {
-                    currentRating = i.getRating();
-                    mostPopularMovie = i;
-                } else if (i.getRating() == currentRating) {
-                    if (i.compareTo(mostPopularMovie) < 0) {
-                        mostPopularMovie = i;
+        for (Media item : inventory) {
+            if (item instanceof Movie) {
+                if (item.getRating() > currentRating) {
+                    currentRating = item.getRating();
+                    mostPopularMovie = item;
+                } else if (item.getRating() == currentRating) {
+                    if (item.compareTo(mostPopularMovie) < 0) {
+                        mostPopularMovie = item;
                     }
                 }
 
             }
         }
+        if (!(mostPopularMovie instanceof Movie)){
+            return null;
+        }
         return (Movie) mostPopularMovie;
     }
-
-
-
 }
