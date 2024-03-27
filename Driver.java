@@ -1,4 +1,13 @@
+/**
+ * This is just the driver for testing.
+ * @author mpalucci3
+ * @version 154321.0.0.0.0
+ */
 public class Driver {
+    /**
+     * Main method for testing.
+     * @param args no Args :)
+     */
     public static void main(String[] args) {
 
         Movie dune = new Movie(Genre.COMEDY, "Harry Potter & the Chamber of Secrets", 10, 17.0, 300);
