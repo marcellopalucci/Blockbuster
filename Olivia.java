@@ -1,13 +1,13 @@
+import java.util.ArrayList;
 /**
  * Class defines Olivia's states and behaviors.
  * @author mpalucci3
  * @version 05.06
  */
-import java.util.ArrayList;
 public class Olivia {
-    private static double budget = 50.0;
+    private static double budget;
     private static ArrayList<Media> cart = new ArrayList<Media>();
-    private static boolean canUseConsole = true;
+    private static boolean canUseConsole;
 
     /**
      * Method which adds a Media item to Olivia's cart. If the item exists in Blockbuster's inventory, then it

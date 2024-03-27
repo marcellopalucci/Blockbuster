@@ -10,7 +10,7 @@ public abstract class Media implements Comparable<Media> {
     private double rentalPrice;
 
     /**
-     * Constructor taking in genre, name, rating, & rentalPrice
+     * Constructor taking in genre, name, rating, & rentalPrice.
      * @param genre Genre representing the genre of this media item
      * @param name String representing the name of this media item
      * @param rating int representing the rating of this media item
@@ -24,7 +24,7 @@ public abstract class Media implements Comparable<Media> {
     }
 
     /**
-     * Constructor that takes in genre, name and rating and sets rentalPrice to 7.0
+     * Constructor that takes in genre, name and rating and sets rentalPrice to 7.0.
      * @param genre Genre representing the genre of this media item
      * @param name String representing the name of this media item
      * @param rating int representing the rating of this media item
@@ -52,27 +52,16 @@ public abstract class Media implements Comparable<Media> {
 
     @Override
     public int compareTo(Media o) {
-        // need to rework
-        if (o == null){
+        if (o == null) {
             return -9999;
         }
 
-        if (this.genre.ordinal() > o.genre.ordinal()) {
-            return 1;
-        } else if (this.genre.ordinal() < o.genre.ordinal()) {
-            return -1;
-        } else {
-            if (this.name.compareTo(o.name) > 0) {
-                return 2;
-            } else if (this.name.compareTo(o.name) < 0) {
-                return -2;
-            } else {
-                if (this.rating > o.rating) {
-                    return 3;
-                } else if (this.rating < o.rating) {
-                    return -3;
-                }
-            }
+        if (!(this.genre.ordinal() == o.genre.ordinal())) {
+            return this.genre.ordinal() - o.genre.ordinal();
+        } else if (this.name.compareTo(o.name) != 0) {
+            return this.name.compareTo(o.name);
+        } else if (this.rating - o.rating != 0) {
+            return this.rating - o.rating;
         }
         return 0;
     }

@@ -1,9 +1,9 @@
+import java.util.ArrayList;
 /**
  * This class represents a Blockbuster store that has movies and video games customers can check out.
  * @author mpalucci3
  * @version 05.05
  */
-import java.util.ArrayList;
 public class Blockbuster {
     private ArrayList<Media> inventory;
 
@@ -105,7 +105,6 @@ public class Blockbuster {
      * @return Movie representing the most popular Movie
      */
     public Movie getMostPopularMovie() {
-        //CHECK THIS, use of generics?
         int currentRating = 0;
         Media mostPopularMovie = inventory.get(0);
         for (Media item : inventory) {
@@ -121,7 +120,7 @@ public class Blockbuster {
 
             }
         }
-        if (!(mostPopularMovie instanceof Movie)){
+        if (!(mostPopularMovie instanceof Movie)) {
             return null;
         }
         return (Movie) mostPopularMovie;

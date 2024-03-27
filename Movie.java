@@ -43,5 +43,4 @@ public class Movie extends Media {
         Movie movieComp = (Movie) o;
         return (super.equals(movieComp) && this.runtime == movieComp.runtime);
     }
-
 }
